@@ -6,8 +6,15 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Jun 2024 21:46:30 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jul 2024 12:04:19 -0500</lastBuildDate>
     <atom:link href="https://rtandr01d.net/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fuzzing Armv7 Binaries With Docker</title>
+      <link>https://rtandr01d.net/post/fuzzing-armv7-binaries-with-docker/</link>
+      <pubDate>Sun, 14 Jul 2024 12:04:19 -0500</pubDate>
+      <guid>https://rtandr01d.net/post/fuzzing-armv7-binaries-with-docker/</guid>
+      <description>Intro For the last six months or so, I have been attempting to figure out an efficient way to fuzz 32-bit ARM binaries while working in an x86 environment. I went into this knowing next to nothing, but have come out the other end with several key pieces of knowledge and a preferred workflow. If you are experienced in this area, you may be saying &amp;ldquo;Just use QEMU!&amp;rdquo;. You are correct, but there are two reasons this wasnt as easy as it should have been.</description>
+    </item>
     <item>
       <title>Calling Functions From Shared Object File for Fuzzing and Debugging</title>
       <link>https://rtandr01d.net/post/calling-functions-from-shared-object-file-for-fuzzing-and-debugging/</link>
