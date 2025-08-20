@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>Setting Up A Petit Potam Lab // </title>
+    <title>Cross Compile With AFL // </title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.131.0">
@@ -17,11 +17,11 @@
 
     
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Setting Up A Petit Potam Lab">
+  <meta name="twitter:title" content="Cross Compile With AFL">
   <meta name="twitter:description" content="The PetitPotam vulnerability has been around for quite some time now, but there is frighteningly little information on how to set up this attack as a lab. There is a decent writeup on it over on DirkJanm’s page however his setup relies on using delegation to set up up a new machine to the domain. My idea of a good lab setup for PetitPotam is relaying the machine account of our vulnerable target to the ADCS server and creating a CSR for that machine account.">
 
-    <meta property="og:url" content="https://rtandr01d.net/post/petitpotam_lab/">
-  <meta property="og:title" content="Setting Up A Petit Potam Lab">
+    <meta property="og:url" content="https://rtandr01d.net/post/crosscompile-with-afl/">
+  <meta property="og:title" content="Cross Compile With AFL">
   <meta property="og:description" content="The PetitPotam vulnerability has been around for quite some time now, but there is frighteningly little information on how to set up this attack as a lab. There is a decent writeup on it over on DirkJanm’s page however his setup relies on using delegation to set up up a new machine to the domain. My idea of a good lab setup for PetitPotam is relaying the machine account of our vulnerable target to the ADCS server and creating a CSR for that machine account.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -55,7 +55,7 @@
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Setting Up A Petit Potam Lab</h1>
+      <h1 class ="post-title">Cross Compile With AFL</h1>
       <div class="post-meta">
         <div>
           <svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
@@ -96,7 +96,7 @@ purposes on setting up automatic enrollment.</p>
 Controller with Auto-Enroll. On your Domain Controller, open Local Group
 Policy Editor and open Windows Settings -&gt; Security Settings and select
 Public Key Policies:</p>
-<p><img src="/images/localgroupolicy.png" alt="image info" title="Local Group Policy"></p>
+<!-- raw HTML omitted -->
 <p>Right-click on Certificate Services Client - Auto-Enrollment and select
 Enabled from the drop down. Be sure to also check the two boxes for
 renewing and updating certificates:</p>
@@ -128,8 +128,7 @@ may take some guesswork on a blind pentest, but is doable. If all is
 correct, your ntlmrelayx session should output a generated Certificate
 Signing Request from the ADCS server for your PetitPotam vulnerable
 Domain Controller:</p>
-<p><img src="/images/output.gif" alt="img">
-:::</p>
+<p><img src="/images/output.gif" alt="img"></p>
 <p>@andr01d@defcon.social</p>
 
     </div>
