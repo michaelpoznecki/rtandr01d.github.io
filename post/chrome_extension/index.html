@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en-us">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <title>Utilizing nativeMessaging In Chrome Extensions For Desktop Client Interraction // </title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="Utilizing nativeMessaging In Chrome Extensions For Desktop Client Interraction">
   <meta name="twitter:description" content="Introduction Chrome browser extensions provide access to several powerful web APIs, giving developers almost limitless functionality that can be built in to their extensions. Web content can be modified, cookies can be changed, and even desktop clients can be controlled. However, if the extension is not set up with the proper permissions, issues can arise allowing malicious websites to take advantage of the extension’s capabilities to wreak havoc. Lets take a look at how improper permissions and the nativeMessaging function can be used to gain access to functions of an extension’s paired desktop client.">
 
-    <meta property="og:url" content="https://rtandr01d.net/post/chrome_extension/">
+    <meta property="og:url" content="http://localhost:1313/post/chrome_extension/">
   <meta property="og:title" content="Utilizing nativeMessaging In Chrome Extensions For Desktop Client Interraction">
   <meta property="og:description" content="Introduction Chrome browser extensions provide access to several powerful web APIs, giving developers almost limitless functionality that can be built in to their extensions. Web content can be modified, cookies can be changed, and even desktop clients can be controlled. However, if the extension is not set up with the proper permissions, issues can arise allowing malicious websites to take advantage of the extension’s capabilities to wreak havoc. Lets take a look at how improper permissions and the nativeMessaging function can be used to gain access to functions of an extension’s paired desktop client.">
   <meta property="og:locale" content="en_us">
@@ -63,7 +63,7 @@
         </div>
         <div>
           <svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          6 min read
+          5 min read
         </div>
       </div>
     </header>
@@ -121,13 +121,13 @@
 </ul>
 <p>Here is a diagram of the flow of data between the web page, extension and desktop client:</p>
 <p><img src="/images/flowchart.jpg" alt="image"></p>
-<p>Finally, lets take a look at how our web page can send and receive data from the extension. I wrote a simple web page with a button that sends the message, and I write the response to the developer console.</p>
+<p>Finally, let&rsquo;s take a look at how our web page can send and receive data from the extension. I wrote a simple web page with a button that sends the message, and I write the response to the developer console.</p>
 <p><img src="/images/webpage.png" alt="image"></p>
-<p>Once we hit the button on our web page, our command to get the IP address should be sent to the content script, and the response from the service worker should be forwarded back to our page!</p>
+<p>How the desktop client receives and resonds to the commands is not very important. In my case, I used the &ldquo;Lyre&rdquo; package in Visual Studio Code.</p>
+<h2 id="exploiting-broad-permissions">Exploiting Broad Permissions</h2>
+<p>Using the <strong>manifest.json</strong>, content script and service worker I showed above, I created an extension and installed it on Chrome. As our permissions allow any domain (due to the wildcards), a malicious website could send commands to the desktop client, and receive the response.</p>
+<p>To test this we can simply host the web page we created however we choose (I used a simple python3 http server), browsing to the hosted page. Once we hit the button, our command to get the IP address should be sent to the content script, and the response from the service worker should be forwarded back to our page!</p>
 <p><img src="/images/execution.png" alt="image"></p>
-<h2 id="here-be-dragons">Here Be Dragons</h2>
-<p>Now that we understand the flow of getting messages to and from our desktop client, it should become clear how and why this can be a security concern. Let&rsquo;s imagine a scenario where you are a customer of company XYZ Corp. You pay for software which helps you keep documents synced between your desktop and their cloud storage service. To do this, you install their Windows service and extension. Every time you visit the site, it will synch your latest documents betwen the desktop and the web portal.</p>
-<p>A second customer also buys this software, but decides to dig into the extension and finds the only way the extension validates which web page it is interacting with is via a string in the page&rsquo;s CSS, leaving the <strong>matches</strong> and <strong>host_permissions</strong> open with a wildcard. Once he findd which commands are being sent to the desktop client to retrieve the updated documents (which is trivial using another extension called Post Message Observer), he crafts a malicious website which sends messages to the service process and retrieves the files.</p>
 <h2 id="secure-your-extension">Secure Your Extension</h2>
 <p>Using wildcards in the URL permissions should be avoided. Specifying exact domains to match prevents any web page from utilizing the content script functions, and limits what communications are allowed with the extension.</p>
 <h3 id="references">References</h3>
